@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Entre Nós — app.js (Versão Acolhedora Completa com Contador)
+   Entre Nós — app.js (Com Suporte a Swipe no Telemóvel)
    ========================================================================== */
 "use strict";
 
@@ -757,7 +757,7 @@ function renderDeck(deckId) {
   mount(page, "deck");
 }
 
-/* Visualização de Carta Única (Com Contador de Cartas Restantes) ----------- */
+/* Visualização de Carta Única com Gestos de Deslizar (Swipe) -------------- */
 function renderSingleCard() {
   if (!state.currentDeck) {
     state.page = "decks";
@@ -802,7 +802,6 @@ function renderSingleCard() {
 
   const card = createElement("article", "question-card-game");
 
-  // Contador de cartas restantes adicionado aqui
   const remaining = Math.max(0, total - (index + 1));
   const counterText =
     remaining === 0
@@ -826,6 +825,39 @@ function renderSingleCard() {
   cardFooter.textContent = deck.title.toUpperCase();
 
   card.append(counterInfo, title, cardFooter);
+
+  // Adiciona a lógica de deslizar o dedo (Swipe) na carta
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  card.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    },
+    { passive: true },
+  );
+
+  card.addEventListener(
+    "touchend",
+    (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    },
+    { passive: true },
+  );
+
+  function handleSwipe() {
+    const threshold = 50; // Distância mínima em pixels para considerar o swipe
+    if (touchEndX < touchStartX - threshold) {
+      // Deslizou para a esquerda -> Próxima carta
+      singleNext();
+    }
+    if (touchEndX > touchStartX + threshold) {
+      // Deslizou para a direita -> Carta anterior
+      singlePrev();
+    }
+  }
 
   const actionsBar = createElement("div", "game-actions-bar");
 
