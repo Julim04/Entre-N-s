@@ -1,127 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#f5f2eb" />
-    <meta
-      name="description"
-      content="Um espaço original para puxar perguntas, conversar e guardar suas favoritas."
-    />
-    <title>Entre Nós — Perguntas para boas conversas</title>
 
-    <!-- Aplica o tema salvo (ou o do sistema) antes da primeira pintura, evitando o "flash" -->
-    <script>
-      (function () {
-        try {
-          var theme = localStorage.getItem("entre-nos-theme");
-          if (theme !== "light" && theme !== "dark") {
-            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
-          }
-          if (theme === "dark") {
-            document.documentElement.classList.add("theme-dark");
-            document
-              .querySelector('meta[name="theme-color"]')
-              .setAttribute("content", "#11150f");
-          }
-        } catch (error) {
-          /* sem localStorage: segue com o tema claro */
-        }
-      })();
-    </script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entre Nós</title>
+  <meta name="theme-color" content="#fdfcf9">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@400..800&display=swap"
+    rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <a
-          class="brand"
-          href="#"
-          data-action="home"
-          aria-label="Entre Nós, início"
-        >
-          <span class="brand-symbol" aria-hidden="true">e.</span>
-          <span>entre nós</span>
-        </a>
+<body>
 
-        <nav class="main-nav" aria-label="Navegação principal">
-          <button
-            class="nav-button is-active"
-            type="button"
-            data-page="decks"
-            aria-current="page"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m12 2 10 5-10 5L2 7l10-5z" />
-              <path d="m2 17 10 5 10-5" />
-              <path d="m2 12 10 5 10-5" />
-            </svg>
-            <span>Baralhos</span>
-          </button>
-          <button class="nav-button" type="button" data-page="history">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9.5" />
-              <path d="M12 6.5V12l3.5 2" />
-            </svg>
-            <span>Histórico</span>
-          </button>
-          <button class="nav-button" type="button" data-page="favorites">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-              />
-            </svg>
-            <span>Salvas</span>
-          </button>
-        </nav>
+  <div class="app-shell">
+    <header class="topbar">
+      <a href="#" class="brand" data-action="home">
+        <span class="brand-symbol">e.</span>
+        <span>entre nós</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button type="button" class="nav-button is-active" data-page="decks" aria-current="page">Baralhos</button>
+        <button type="button" class="nav-button" data-page="history">Histórico</button>
+        <button type="button" class="nav-button" data-page="favorites">Salvas</button>
+      </nav>
+      <button type="button" class="theme-toggle" data-action="toggle-theme" aria-pressed="false"
+        aria-label="Alternar tema">
+        <svg class="icon icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+    </header>
 
-        <button
-          class="theme-toggle"
-          type="button"
-          data-action="toggle-theme"
-          aria-pressed="false"
-          aria-label="Modo escuro"
-          title="Alternar entre modo claro e escuro"
-        >
-          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4.5" />
-            <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-            />
-          </svg>
-        </button>
-      </header>
+    <main id="app" tabindex="-1">
+      <!-- O conteúdo dinâmico é injetado aqui pelo app.js -->
+    </main>
 
-      <div
-        id="notice"
-        class="notice"
-        role="status"
-        aria-live="polite"
-        hidden
-      ></div>
-      <main id="app" tabindex="-1"></main>
+    <footer class="footer">
+      <span>Feito para estar presente.</span>
+      <span>Perguntas originais. Respostas só suas.</span>
+    </footer>
+  </div>
 
-      <footer class="footer">
-        <span>Feito para estar presente.</span>
-        <span>Perguntas originais. Respostas só suas.</span>
-      </footer>
-    </div>
-    <script src="app.js"></script>
-  </body>
+  <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+  <!-- JavaScript com versão para forçar atualização no GitHub Pages -->
+  <script src="app.js?v=2.0"></script>
+</body>
+
 </html>
