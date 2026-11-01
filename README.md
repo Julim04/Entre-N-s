@@ -22,9 +22,3 @@ Abra `index.html` em um navegador moderno. Não há dependências nem etapa de b
 - Número da carta ("Carta 3 de 27") junto com o que falta, e botão **Carta anterior** para voltar à última carta vista na sessão (sem duplicar o histórico).
 - Atalhos na carta: seta direita sorteia outra, seta esquerda volta à carta anterior, Esc volta ao baralho.
 - Histórico (com opção de limpar) e Salvas, persistidos em `localStorage`, com aviso visível quando o navegador não consegue ler ou salvar os dados.
-
-## Referência de análise
-
-O REA inspecionou somente o APK mais recente `Isso não é um jogo.apk` (SHA-256 `87cf8f9d234ceeaf381cc7a17178526231d4e570b864081df5d08fb033e2543e`; Evidence `ev_dfb82fc4bbbc6c924d2e119027525ddc693d1c35cb78c6b1aeca5bcb850df4bb`). O inventário completo dos itens ZIP (Evidence `ev_f5dedf7f8ef9fcc11d03c8d09346d9ae9a8df7fe43af90c6bd925cead77e4ad9`) apontou um bundle Unity Addressables e `global-metadata.dat`. A busca estática no bundle encontrou identificadores como `MainMenu`, `MainUIScreen`, `choose_deck`, `CardUIScreen`, `FeelingsHistory`, `DailyCard` e `liked-cards`. Esses nomes inspiraram somente recursos genéricos; não provam navegação ou comportamento em execução. O REA não encontrou scripts C# como fonte no pacote, e o provedor JADX não estava configurado. O APK antigo `Isso não é um jogo_2.2_Apkpure.apk` não foi usado como base.
-
-O histórico e os favoritos deste app são registros locais do navegador e podem ser apagados quando os dados do site forem limpos. Eles não são enviados a um servidor.
