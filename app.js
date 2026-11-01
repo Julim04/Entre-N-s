@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Entre Nós, Interweave, Finding Myself & Isso Não É um Date — app.js (Completo)
+   Entre Nós, Entrelaçar, Me Encontrando e Isso Não É um Encontro — app.js (Completo)
    ========================================================================== */
 "use strict";
 
@@ -9,7 +9,7 @@ const THEME_KEY = "entre-nos-theme";
 const mainDecks = [
   {
     id: "entre-nos",
-    title: "This Is Not A Game",
+    title: "Isso não é um jogo",
     subtitle: "Para todas as conexões",
     category: "Tópicos Gerais",
     totalPhases: 6,
@@ -211,14 +211,14 @@ const mainDecks = [
   },
   {
     id: "issonaoedate",
-    title: "Isso Não É um Date",
-    subtitle: "Para dates e encontros",
-    category: "Dates & Romance",
+    title: "Isso não é um encontro",
+    subtitle: "Para encontros",
+    category: "Encontros e romance",
     totalPhases: 3,
     totalQuestions: 58,
     themeColor: "#D97706",
     description:
-      "Perguntas autênticas e envolventes divididas em 3 fases para dates e encontros inesquecíveis.",
+      "Perguntas autênticas e envolventes divididas em 3 fases para encontros inesquecíveis.",
     phases: [
       {
         id: "date-fase-1",
@@ -229,9 +229,9 @@ const mainDecks = [
         questions: [
           "Qual é a comida que, quando você come, se sente abraçado?",
           "Qual seu lugar favorito no mundo? (Ambos respondem fazendo mímica, um de cada vez. Cronometrem e vejam quem acerta mais rápido.)",
-          "O que faz você dar Like no perfil de alguém NO TINDER logo de cara? E o que faz você dar Nope?",
+          "O que faz você curtir o perfil de alguém no TINDER logo de cara? E o que faz você não curtir?",
           "Existe algo que você gostaria de fazer, mas sente medo de tentar?",
-          "Como seria um date perfeito para você? (Lembre-se de que vocês podem transformar isso em realidade).",
+          "Como seria um encontro perfeito para você? (Lembre-se de que vocês podem transformar isso em realidade).",
           'Complete a frase: "Trabalho para mim é: __________".',
           "Qual é a primeira coisa que está na sua lista de metas deste ano? E a última?",
           "Além do seu trabalho e/ou faculdade, sobre o que você gosta de aprender e ler?",
@@ -241,7 +241,7 @@ const mainDecks = [
           "O que te fez sorrir hoje?",
           "Quais são as suas três coisas favoritas sobre você?",
           "Com quem na sua vida você sente que pode ser o seu eu mais verdadeiro? Explique.",
-          "Conte qual foi o date de Tinder mais inusitado da sua vida, depois conte qual foi o melhor. (Compartihem suas histórias e depois decidam quem teve a melhor experiência.)",
+          "Conte qual foi o encontro mais inusitado que você teve pelo Tinder e, depois, conte qual foi o melhor. (Compartilhem suas histórias e decidam quem teve a melhor experiência.)",
           "Quais são seus emojis mais recentes? O que eles dizem sobre você?",
           "O que você faz hoje para se tornar a pessoa que deseja ser? Quais são as atitudes que considera que mais te evoluem como pessoa?",
           "Qual conselho ou frase você leva para sua vida?",
@@ -264,7 +264,7 @@ const mainDecks = [
           "Me conte algo que você normalmente não falaria em primeiros encontros. (Permissão para ser vulnerável)",
           "De zero a dez, quanto você acredita que o trabalho é um tópico importante no relacionamento? Explique-se.",
           "Você acha que está bem resolvido com seu passado amoroso?",
-          "Ghosting: você já passou por isso? O que você pensa sobre isso?",
+          "Sumiço repentino: você já passou por isso? O que pensa sobre isso?",
           "E se você fosse escrever minha bio no Tinder, o que você escreveria?",
           "Qual é a sua linguagem de amor mais forte? ( ) Tempo de qualidade ( ) Dar presentes ( ) Atos de serviço ( ) Toque físico",
           "O que mais te chamou atenção em mim?",
@@ -292,7 +292,7 @@ const mainDecks = [
           "Você já considerou a possibilidade de estar em um relacionamento aberto?",
           "Qual foi a última vez que você teve uma discussão com alguém? Qual era o motivo?",
           "Na sua opinião, quais são as coisas que podem fazer outras pessoas se afastarem de você?",
-          'Descrevam esse date em uma palavra. Dê a vocês dez segundos para pensar na palavra, e no "já", falem juntos.',
+          'Descrevam este encontro em uma palavra. Têm dez segundos para pensar e, quando eu disser "já", falem juntos.',
           "Qual é a sua maior insegurança hoje? Como você está lidando com isso (se estiver)?",
           "Em algum momento, eu fiz algo que te chateou ou te deu insegurança? Me conte com toda sinceridade.",
           "Me conte algo que você aprendeu comigo hoje.",
@@ -304,14 +304,14 @@ const mainDecks = [
           'Qual é a primeira coisa que vem à sua mente quando você ouve a palavra "amor"? Não vale pensar, tem que ser a primeira. um, dois, três,vai!!!',
           "Qual é a maior prioridade em um relacionamento para você?",
           "Me conte qual seria a trilha sonora perfeita para um beijo.",
-          "Escrevam as três principais qualidades que seu match deve ter, com um minuto para cada um. Depois compartilhem entre si.",
+          "Escrevam as três principais qualidades que a pessoa ideal deve ter, com um minuto para cada um. Depois compartilhem entre si.",
         ],
       },
     ],
   },
   {
     id: "entrelacar",
-    title: "Interweave",
+    title: "Entrelaçar",
     subtitle: "Para casais",
     category: "Aprofundar Relações",
     totalPhases: 3,
@@ -323,7 +323,7 @@ const mainDecks = [
       {
         id: "entrelacar-fase-0",
         phaseLabel: "Fase 1",
-        title: "O Quiz",
+        title: "O Questionário",
         themeColor: "#762648",
         description:
           "Inicie conversas íntimas e descubra detalhes surpreendentes.",
@@ -390,8 +390,8 @@ const mainDecks = [
         questions: [
           "Se fizéssemos uma tatuagem juntos, o que tatuaríamos? Desenhem um no outro com uma caneta.",
           "Vivam um dia inteiro sem celular. Ao final do dia, escrevam como foi essa experiência para vocês. Deixem os sentimentos virarem palavras.",
-          "Criem uma playlist do casal, escolham as músicas que vocês mais gostam juntos. Não esqueçam de colocar um nome criativo para ela.",
-          "(Re)criem o primeiro date de vocês. Usem a criatividade para se aproximar de como foi na época.",
+          "Criem uma lista de reprodução do casal com as músicas de que mais gostam juntos. Não esqueçam de dar um nome criativo a ela.",
+          "(Re)criem o primeiro encontro de vocês. Usem a criatividade para se aproximar de como foi na época.",
           "Troquem de papéis: passem um dia inteiro expressando afeto/amor/atitudes da forma como o seu parceiro(a) expressa.",
           "Criem um desafio juntos para ser cumprido durante uma semana. Escolham em conjunto qual será o prêmio do ganhador.",
           "Escrevam uma canção de amor ou poema e recitem/cantem um para o outro. Têm 5 minutos que devem ser cronometrados para escrever e depois revelar (realizando).",
@@ -399,10 +399,10 @@ const mainDecks = [
           "Desafio das mãos atadas: deem as mãos ou amarrem com um barbante e façam algo juntos (como, por exemplo, ir ao banheiro, fazer um lanche ou uma dança). Depois, observem como é o trabalho em equipe, fluidez e flexibilidade do casal.",
           "Os olhos são a janela da alma. Sentem-se um de frente para o outro, dêem as mãos e tentem sustentar o olhar (sim, podem piscar). Fiquem assim o tempo que conseguirem e percebam o que sentiram, como foi esse momento para vocês. O que sentiram? Foi desconfortável, leve, difícil?",
           "Separadamente, façam um desenho de como vocês se imaginam no futuro. Compartilhem, comparem, comentem.",
-          "Criem um novo hobby para praticarem sempre juntos. Pensem em atividades como aulas de dança, desportos, assistir aos filmes premiados com o Óscar, leitura de livros em conjunto.",
+          "Criem um novo passatempo para praticarem sempre juntos. Pensem em atividades como aulas de dança, esportes, assistir a filmes premiados com o Oscar ou ler livros em conjunto.",
           'Dos mesmos criadores de "vale night", chegou o "vale day". Criem uma programação surpresa para o vosso parceiro(a). Escreve o que sugerem para ser feito durante todo o dia. Ele(a) viverá esse dia sozinho(a). (Calma, a saudade é boa e importante, momentos de solitude também).',
           "Pare tudo e estejam presentes nesse momento para um beijo com língua. Aquele beijo demorado e de cinema. APROVEITEM e lembrem-se de ter esse momento no dia a dia.",
-          "Vistam o papel de professor e aluno(a). Cada um escolhe uma habilidade que tem expertise e vai ensinar ao outro como fazer (ou pelo menos tentar), dêem nota de como se saíram.",
+          "Assumam os papéis de professor e aluno(a). Cada um escolhe algo que sabe fazer bem e ensina ao outro (ou pelo menos tenta). Depois, deem uma nota para o desempenho.",
           "Recordar para (re)lembrar: revejam as conversas antigas do início de flerte no WhatsApp, Instagram, Facebook ou vejam a galeria de fotos e reparem no que mudou desde então.",
           "Prontos para se verem literalmente pelo olhar do outro? Com a câmera do telemóvel, cada um irá fazer uma sessão de fotos do outro, no mínimo 10 fotos. Usem a criatividade e lembrem-se: quanto mais naturais, melhor. Soltem-se e não se preocupem: é normal ficar tímido no início.",
           "Escolham um filme/série/documentário para verem juntos. Escrevam o que sentiram, notaram e poetizaram sobre o que viram. Depois compartilhem um com o outro.",
@@ -414,7 +414,7 @@ const mainDecks = [
   },
   {
     id: "finding-myself",
-    title: "Finding Myself",
+    title: "Me encontrando",
     subtitle: "Para autoconhecimento",
     category: "Autoconhecimento",
     totalPhases: 1,
@@ -429,7 +429,7 @@ const mainDecks = [
         title: "Autoconhecimento",
         themeColor: "#4A7C59",
         description:
-          "Este é o toolkit que acompanhará você nos melhores encontros consigo mesmo. Não hesite em colocar em palavras o que seu coração está sentindo; você verá quão mágico é. Confie em si mesmo!",
+          "Este conjunto de perguntas acompanhará você nos melhores encontros consigo mesmo. Não hesite em colocar em palavras o que seu coração está sentindo; você verá como isso é mágico. Confie em si mesmo!",
         questions: [
           "Qual é a primeira coisa que você acredita que eu faço quando estou irritado(a)?",
           "De 0 a 10, o quanto você acha que eu sou bom em esportes radicais?",
@@ -445,7 +445,7 @@ const mainDecks = [
           "Quais são os momentos da tua vida em que te sentes mais autêntico e verdadeiro?",
           "Qual é a comida que, quando comes, te faz sentir abraçado(a)?",
           "Qual é o teu lugar preferido no mundo? (Ambos respondem com mímica, um de cada vez. Contem o tempo e vejam quem acerta mais rápido.)",
-          "O que te leva a dar like num perfil no TINDER logo à primeira? E o que te faz dar swipe para a esquerda?",
+          "O que faz você curtir um perfil no TINDER logo de cara? E o que faz você deslizar para a esquerda?",
           "Há algo que gostasses de fazer, mas tens receio de tentar?",
           "O que achas que eu aprecio mais em ti fisicamente?",
           "Como seria um dia perfeito para mim?",

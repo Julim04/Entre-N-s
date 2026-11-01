@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Entre Nós & Interweave — styles.css (Corrigido e Alinhado)
+   Entre Nós & Entrelaçar — styles.css (Corrigido e alinhado)
    ========================================================================== */
 
 :root {
@@ -215,7 +215,7 @@ input:focus-visible {
   width: 100%;
 }
 
-/* Páginas e Home */
+/* Páginas e início */
 .page {
   display: flex;
   flex-direction: column;
@@ -522,7 +522,7 @@ input:focus-visible {
 
 
 /* ==========================================================================
-   REFINAMENTO VISUAL — Entre Nós & Interweave
+   REFINAMENTO VISUAL — Entre Nós & Entrelaçar
    Camada de aprimoramento: preserva os seletores usados pelo HTML/JavaScript.
    ========================================================================== */
 

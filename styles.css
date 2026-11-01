@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Entre Nós & Interweave — styles.css (Completo com Modo Escuro)
+   Entre Nós & Entrelaçar — styles.css (Completo com modo escuro)
    ========================================================================== */
 
 :root {
@@ -34,7 +34,7 @@
 }
 
 /* ==========================================================================
-   Modo Escuro (Dark Mode)
+   Modo escuro
    ========================================================================== */
 body.dark-mode {
   color-scheme: dark;
@@ -281,7 +281,7 @@ body.dark-mode .secondary-button:hover {
   width: 100%;
 }
 
-/* Páginas e Home */
+/* Páginas e início */
 .page {
   display: flex;
   flex-direction: column;
