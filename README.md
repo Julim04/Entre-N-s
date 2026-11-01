@@ -6,6 +6,10 @@ Uma aplicação web original de perguntas em baralhos. O projeto usa conteúdo e
 
 Abra `index.html` em um navegador moderno. Não há dependências nem etapa de build (apenas as fontes DM Sans e Manrope via Google Fonts, com fallback para fontes do sistema se estiver offline).
 
+## Publicar no GitHub Pages
+
+O workflow em `.github/workflows/deploy-pages.yml` publica o site a cada push na branch `main`. Em **Settings > Pages**, selecione **GitHub Actions** como fonte de publicação. Também é possível iniciar um deploy manualmente pela aba **Actions**.
+
 ## Arquivos
 
 - `index.html`: estrutura, barra superior, navegação e script de tema que roda antes da primeira pintura (sem "flash").
