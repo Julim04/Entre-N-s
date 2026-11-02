@@ -1102,3 +1102,80 @@ body.dark-mode ::selection {
 .question-card-game .question-card-footer-bar {
   z-index: 2;
 }
+
+
+/* ==========================================================================
+   FASES EM CARROSSEL HORIZONTAL (PC e celular)
+   As cartas ficam lado a lado e se rolam para os lados, ocupando a largura
+   total da janela, mesmo dentro do .app-shell.
+   ========================================================================== */
+.phases-carousel-container {
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 16px 0 48px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.phases-carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.phases-carousel-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 20px;
+  width: max-content;
+  /* Centraliza a primeira e a última carta na janela */
+  padding-inline: max(16px, calc(50vw - 160px));
+}
+
+.deck-card-phase.carousel-card {
+  flex: 0 0 320px;
+  width: 320px;
+  max-width: none;
+  min-height: 420px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* PC: barra de rolagem fina visível e encaixe mais suave para a roda do mouse */
+@media (hover: hover) and (pointer: fine) {
+  .phases-carousel-container {
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+
+  .phases-carousel-container::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+
+  .phases-carousel-container::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: var(--line-strong);
+  }
+
+  .deck-card-phase.carousel-card {
+    flex-basis: 340px;
+    width: 340px;
+  }
+
+  .phases-carousel-track {
+    padding-inline: max(24px, calc(50vw - 170px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phases-carousel-container {
+    scroll-behavior: auto;
+  }
+}

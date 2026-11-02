@@ -3,7 +3,7 @@
    ========================================================================== */
 "use strict";
 
-const STORAGE_KEY = "entre-nos-state-v29";
+const STORAGE_KEY = "entre-nos-state-v33";
 const THEME_KEY = "entre-nos-theme";
 
 const mainDecks = [
@@ -157,7 +157,7 @@ const mainDecks = [
           "Diga algo que você nunca teve coragem de dizer a ninguém.",
           "Se você pudesse me dar algum conselho, qual seria?",
           "Descreva como você me apresentaria a um estranho.",
-          "Você tiene medo da morte? O que você acredita que acontece quando morremos?",
+          "Você tem medo da morte? O que você acredita que acontece quando morremos?",
           "Por que você acha que nossos caminhos se cruzaram nesta vida?",
           "Conte-me sobre alguém que entrou na sua vida e ajudou você a se tornar uma pessoa melhor hoje.",
           "Existe alguma crença ou padrão na sua família que você gostaria de redefinir?",
@@ -189,7 +189,7 @@ const mainDecks = [
           "A pessoa à sua esquerda agora é seu Mestre. Faça o que ela ordenar por 3 minutos.",
           "Se a felicidade fosse uma moeda nacional, qual trabalho o tornaria muito rico?",
           "Qual é o maior desafio que você enfrenta na vida hoje?",
-          "Há algo que você gostaria de fazer, mas não fez por achar que é muito velho?",
+          "Há alguma coisa que você gostaria de fazer, mas não fez por achar que é muito velho?",
           "Compartilhe sua melhor tática de flerte. Mostre para todo mundo.",
           "Pense em alguém que você inveja e diga o que admira nessa pessoa.",
           "Compartilhe um ato de coragem recente que jamais imaginaria que faria.",
@@ -588,7 +588,7 @@ function renderPhasesView(mainDeckId) {
 
   state.selectedMainDeck = mainDeck;
   document.body.style.backgroundColor = "";
-  const page = createElement("section", "page");
+  const page = createElement("section", "page phases-carousel-page");
 
   const backRow = createElement("div", "back-row");
   backRow.append(
@@ -603,13 +603,14 @@ function renderPhasesView(mainDeckId) {
   const heading = createElement("div", "page-heading");
   heading.append(
     createElement("h1", "", mainDeck.title),
-    createElement("p", "", mainDeck.subtitle),
+    createElement("p", "", "Escolha uma categoria para jogar"),
   );
 
-  const grid = createElement("div", "deck-grid");
+  const carouselContainer = createElement("div", "phases-carousel-container");
+  const track = createElement("div", "phases-carousel-track");
 
   mainDeck.phases.forEach((phase, idx) => {
-    const card = createElement("article", "deck-card-phase");
+    const card = createElement("article", "deck-card-phase carousel-card");
     card.style.backgroundColor = phase.themeColor;
 
     const top = createElement("div", "deck-phase-top");
@@ -635,10 +636,11 @@ function renderPhasesView(mainDeckId) {
     });
 
     card.append(top, content, openBtn);
-    grid.append(card);
+    track.append(card);
   });
 
-  page.append(backRow, heading, grid);
+  carouselContainer.append(track);
+  page.append(backRow, heading, carouselContainer);
   mount(page);
 }
 
@@ -653,7 +655,6 @@ function renderSingleCard() {
   const total = phase.questions.length;
   const question = phase.questions[index];
 
-  // No modo escuro, mantemos a cor de fundo controlada pelo CSS dark-mode
   if (!document.body.classList.contains("dark-mode")) {
     document.body.style.backgroundColor = phase.themeColor;
   } else {
@@ -663,61 +664,10 @@ function renderSingleCard() {
   const page = createElement("section", "page single-card-view");
   const stack = createElement("div", "card-stack-game");
 
-  const phasesList = state.selectedMainDeck.phases;
-  const currentPhaseIndex = phasesList.indexOf(phase);
-
-  const phaseNav = createElement("div", "phase-nav-bar");
-  phaseNav.style.cssText = `
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(8px);
-    padding: 6px 12px;
-    border-radius: 50px;
-    margin-bottom: 16px;
-    width: 100%;
-    max-width: 320px;
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  `;
-
-  const prevPhaseBtn = createButton({
-    action: "prev-phase",
-    className: "phase-nav-icon-btn",
-    icon: "chevronLeft",
-    attrs: { "aria-label": "Fase anterior" },
-  });
-  prevPhaseBtn.style.cssText =
-    "background: none; border: none; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px; opacity: " +
-    (currentPhaseIndex > 0 ? "1" : "0.3") +
-    ";";
-  if (currentPhaseIndex === 0) prevPhaseBtn.disabled = true;
-
-  const phaseTitleSpan = createElement("span", "", phase.title.toUpperCase());
-  phaseTitleSpan.style.cssText =
-    "font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-align: center; flex: 1; padding: 0 8px;";
-
-  const nextPhaseBtn = createButton({
-    action: "next-phase",
-    className: "phase-nav-icon-btn",
-    icon: "chevronRight",
-    attrs: { "aria-label": "Próxima fase" },
-  });
-  nextPhaseBtn.style.cssText =
-    "background: none; border: none; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px; opacity: " +
-    (currentPhaseIndex < phasesList.length - 1 ? "1" : "0.3") +
-    ";";
-  if (currentPhaseIndex === phasesList.length - 1) nextPhaseBtn.disabled = true;
-
-  phaseNav.append(prevPhaseBtn, phaseTitleSpan, nextPhaseBtn);
-
   const card = createElement("article", "question-card-game");
   card.style.position = "relative";
 
-  const phaseBadge = createElement("div", "", phase.phaseLabel.toUpperCase());
-  phaseBadge.style.cssText =
-    "position: absolute; top: 16px; right: 20px; font-size: 0.75rem; font-weight: 700; opacity: 0.85; letter-spacing: 0.05em;";
+  const headerTop = createElement("div", "question-card-header-top");
 
   const remaining = Math.max(0, total - (index + 1));
   const counterText =
@@ -730,13 +680,15 @@ function renderSingleCard() {
     createElement("span", "", counterText),
   );
 
+  headerTop.append(counterInfo);
+
   const title = createElement("h1", "card-question-text", question);
 
   const cardFooter = createElement("div", "question-card-footer-bar");
   cardFooter.style.backgroundColor = phase.themeColor;
   cardFooter.textContent = phase.title.toUpperCase();
 
-  card.append(phaseBadge, counterInfo, title, cardFooter);
+  card.append(headerTop, title, cardFooter);
 
   let touchStartX = 0;
   card.addEventListener(
@@ -773,7 +725,7 @@ function renderSingleCard() {
   });
 
   actionsBar.append(backBtn, nextBtn);
-  stack.append(phaseNav, card, actionsBar);
+  stack.append(card, actionsBar);
   page.append(stack);
   mount(page);
 }
@@ -828,24 +780,6 @@ const actions = {
     renderPhasesView(state.selectedMainDeck.id);
   },
   "single-next": () => singleNext(),
-  "prev-phase": () => {
-    const phases = state.selectedMainDeck.phases;
-    const idx = phases.indexOf(state.selectedPhase);
-    if (idx > 0) {
-      state.selectedPhase = phases[idx - 1];
-      state.currentIndex = 0;
-      renderSingleCard();
-    }
-  },
-  "next-phase": () => {
-    const phases = state.selectedMainDeck.phases;
-    const idx = phases.indexOf(state.selectedPhase);
-    if (idx < phases.length - 1) {
-      state.selectedPhase = phases[idx + 1];
-      state.currentIndex = 0;
-      renderSingleCard();
-    }
-  },
   history: (d, e) => {
     e.preventDefault();
     showNotice("Histórico de perguntas visitadas em breve!");
@@ -865,7 +799,6 @@ const actions = {
       ?.setAttribute("content", isDark ? "#151412" : "#fcf9f5");
     showNotice(`Modo ${isDark ? "escuro" : "claro"} ativado`);
 
-    // Se estivermos na vista de carta e mudarmos o tema, re-renderiza para atualizar as cores de fundo
     if (state.page === "question") {
       renderSingleCard();
     }
